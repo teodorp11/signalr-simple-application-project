@@ -7,6 +7,11 @@ connectionUserCount.on("updateTotalViews", (value) => {
     newCountSpan.innerText = value.toString();
 });
 
+connectionUserCount.on("updateTotalUsers", (value) => {
+    var newCountSpan = document.getElementById("totalUsersCounter");
+    newCountSpan.innerText = value.toString();
+});
+
 // Invoking Hub methods (Sending notifications to the Hub)
 function newWindowLoadedOnClient() {
     connectionUserCount.send("NewWindowLoaded");
