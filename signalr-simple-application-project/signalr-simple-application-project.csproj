@@ -16,4 +16,12 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.22" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\microsoft-signalr\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\usersCount.js" />
+  </ItemGroup>
+
 </Project>

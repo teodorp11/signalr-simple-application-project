@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using signalr_simple_application_project.Data;
+using signalr_simple_application_project.Hubs;
 
 namespace signalr_simple_application_project;
 
@@ -19,6 +20,7 @@ public class Program
         builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             .AddEntityFrameworkStores<ApplicationDbContext>();
         builder.Services.AddControllersWithViews();
+        builder.Services.AddSignalR();
 
         var app = builder.Build();
 
@@ -45,6 +47,7 @@ public class Program
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}");
         app.MapRazorPages();
+        app.MapHub<UserHub>("/hubs/userCount");
 
         app.Run();
     }
